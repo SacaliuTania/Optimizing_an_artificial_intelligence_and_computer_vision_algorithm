@@ -1,0 +1,35 @@
+Arhitectura YOLOv8
+
+a) Backbone -> extrage caracteristici (features) din imagine.
+Sunt folosite module de tip CSP(Cross Stage Parial) si Focus layers. Este folossit pentru a reduce dimensiunea spatiala a imaginii 
+
+
+b) Neck (optional / feature pyramid) -> combina feature maps de la diferite niveluri pentru detectarea obiectelor de dimensiuni mici, medii și mari.
+
+
+1. Preia semnal de jos în sus (bottom-up) și sus în jos (top-down)
+
+2. Ajută head-ul să fie mai precis
+
+3. Rezultatul: feature maps fuzionate la 3 scale diferite
+
+
+c) Head are rolul de -> predict bounding boxes, class probabilities, objectness
+YOLOv8 este anchor-free, deci nu folosește ancore predefinite.
+
+Predictii pentru fiecare pixel din feature map:
+
+1. (x, y, w, h) – coordonate bounding box
+
+2. objectness – probabilitate că există un obiect
+
+3. class probabilities – probabilitățile fiecărei clase
+
+d) Output layers
+Tensor final: [num_detections, 6]
+[x_center, y_center, width, height, confidence, class_id]
+Se aplică Non-Max Suppression (NMS) pentru a elimina dublurile.
+
+3 scale diferite: mic, mediu, mare (pentru detectarea obiectelor de diferite dimensiuni)
+
+
