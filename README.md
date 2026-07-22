@@ -3,7 +3,7 @@ Implementarea și testarea inițiale s-au realizat pe o platformă desktop echip
 
 
 #2. Arhitectura soluției 
-Modelul ales a fost YOLOv8 small din cauza constrângerilor platformei. Ocupă puțin spațiu în format ONNX și nu consumă multă memorie 
+   Modelul ales a fost YOLOv8 small din cauza constrângerilor platformei. Ocupă puțin spațiu în format ONNX și nu consumă multă memorie 
 Tehnologiile principale folosite sunt ONNX Runtime și TensorRT. TensorRT are abilitatea de a transforma un format FP32 într-un format cu precizie mai mică precum FP16 sau INT8. În urma acestei reduceri se obține o latență mai scăzută. 
 
 #3. Schema bloc a arhitecturii 
